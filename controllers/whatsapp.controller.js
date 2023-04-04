@@ -23,6 +23,7 @@ const sendMessage = async (messageBody, number) => {
 };
 
 let booking = false;
+let STAGE = 0;
 const bookingFunction = (STAGE, number, obj) => {
 	if (STAGE == -1) {
 		sendMessage('Hello Yatri...', number);
@@ -69,7 +70,7 @@ const recieveMessage = async (req, res) => {
 		if (req.body.Body && !booking) sendMessage('text', req.body.From);
 		if (req.body.Body == 'BOOK') {
 			booking = true;
-			bookingFunction(0, req.body.From);
+			bookingFunction(STAGE, req.body.From);
 		}
 		if (req.body.Latitude && req.body.Longitude && STAGE == 0) {
 			console.log('Location Recieved', req.body.Latitude, req.body.Longitude);

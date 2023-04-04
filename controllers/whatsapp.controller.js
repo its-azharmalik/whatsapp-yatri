@@ -143,7 +143,6 @@ const recieveMessage = async (req, res) => {
 		//   ApiVersion: '2010-04-01'
 
 		console.log('recieveMessage');
-		// console.log(req.body);
 	} catch (error) {
 		res.status(500).json({
 			error: error.message,

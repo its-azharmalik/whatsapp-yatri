@@ -27,6 +27,7 @@ let STAGE = 0;
 const bookingFunction = (STAGE, number, obj) => {
 	if (STAGE == -1) {
 		sendMessage('Hello Yatri...', number);
+		STAGE = 0;
 	}
 	if (STAGE == 0) {
 		sendMessage('SEND STARTING LOCATION', number);
@@ -66,10 +67,13 @@ const bookingFunction = (STAGE, number, obj) => {
 
 const recieveMessage = async (req, res) => {
 	try {
-		if (req.body.Body == 'CANCEL') return;
+		if (req.body.Body == 'CANCEL') {
+			STAGE = -1;
+		}
 		if (req.body.Body && !booking) sendMessage('text', req.body.From);
 		if (req.body.Body == 'BOOK') {
 			booking = true;
+			STAGE = 0;
 			bookingFunction(STAGE, req.body.From);
 		}
 		if (req.body.Latitude && req.body.Longitude && STAGE == 0) {

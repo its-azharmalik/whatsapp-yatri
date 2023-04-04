@@ -70,20 +70,15 @@ const recieveMessage = async (req, res) => {
 		if (req.body.Body == 'CANCEL') {
 			STAGE = -1;
 		}
-		if (req.body.Body && !booking) sendMessage('text', req.body.From);
-		if (req.body.Body == 'BOOK') {
-			booking = true;
-			STAGE = 0;
-			bookingFunction(STAGE, req.body.From);
-		}
-		if (req.body.Latitude && req.body.Longitude && STAGE == 0) {
-			console.log('Location Recieved', req.body.Latitude, req.body.Longitude);
-			STAGE += 1;
+		// if (req.body.Body && !booking) sendMessage('text', req.body.From);
+
+		if (req.body.Body == 'REJECT' && STAGE == 3) {
+			STAGE = -1;
 			bookingFunction(STAGE, req.body.From);
 		}
 
-		if (req.body.Latitude && req.body.Longitude && STAGE == 1) {
-			console.log('Location Recieved', req.body.Latitude, req.body.Longitude);
+		if (req.body.Body == 'CONFIRM' && STAGE == 3) {
+			console.log('Implement Driver System SEARCHING');
 			STAGE += 1;
 			bookingFunction(STAGE, req.body.From);
 		}
@@ -97,14 +92,21 @@ const recieveMessage = async (req, res) => {
 			bookingFunction(STAGE, req.body.From, obj);
 		}
 
-		if (req.body.Body == 'REJECT' && STAGE == 3) {
-			STAGE = -1;
+		if (req.body.Latitude && req.body.Longitude && STAGE == 1) {
+			console.log('Location Recieved', req.body.Latitude, req.body.Longitude);
+			STAGE += 1;
 			bookingFunction(STAGE, req.body.From);
 		}
 
-		if (req.body.Body == 'CONFIRM' && STAGE == 3) {
-			console.log('Implement Driver System SEARCHING');
+		if (req.body.Latitude && req.body.Longitude && STAGE == 0) {
+			console.log('Location Recieved', req.body.Latitude, req.body.Longitude);
 			STAGE += 1;
+			bookingFunction(STAGE, req.body.From);
+		}
+
+		if (req.body.Body == 'BOOK') {
+			booking = true;
+			STAGE = 0;
 			bookingFunction(STAGE, req.body.From);
 		}
 

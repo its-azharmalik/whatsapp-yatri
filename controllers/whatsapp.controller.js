@@ -59,7 +59,7 @@ const bookingFunction = (STAGE, number, obj) => {
 
 		setTimeout(() => {
 			sendMessage('Your OTP has Mathced & Ride Started', number);
-		}, 2000);
+		}, 8000);
 		setTimeout(() => {
 			sendMessage('Your Ride Ended', number);
 		}, 5000);

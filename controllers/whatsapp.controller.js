@@ -15,7 +15,7 @@ const sendMessage = async (req, res) => {
 const recieveMessage = async (req, res) => {
 	try {
 		console.log('recieveMessage');
-		console.log(req);
+		console.log(req.body);
 	} catch (error) {
 		res.status(500).json({
 			error: error.message,

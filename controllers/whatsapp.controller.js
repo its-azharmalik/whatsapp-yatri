@@ -12,7 +12,7 @@ const sendMessage = async (messageBody, number) => {
 		console.log(client.messages);
 		client.messages
 			.create({
-				body: { messageBody },
+				body: messageBody,
 				from: 'whatsapp:+14155238886',
 				to: number,
 			})

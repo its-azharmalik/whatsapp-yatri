@@ -62,7 +62,7 @@ const bookingFunction = (STAGE, number, obj) => {
 		}, 8000);
 		setTimeout(() => {
 			sendMessage('Your Ride Ended', number);
-		}, 5000);
+		}, 10000);
 	}
 };
 

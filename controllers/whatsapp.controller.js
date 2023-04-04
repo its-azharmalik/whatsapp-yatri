@@ -16,8 +16,7 @@ const sendMessage = async (messageBody, number) => {
 				from: 'whatsapp:+14155238886',
 				to: number,
 			})
-			.then((message) => console.log(message.sid))
-			.done();
+			.then((message) => console.log(message.sid));
 	} catch (error) {
 		console.log(error);
 	}

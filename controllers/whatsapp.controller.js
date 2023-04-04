@@ -140,6 +140,7 @@ const recieveMessage = async (req, res) => {
 
 		console.log('recieveMessage');
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({
 			error: error.message,
 		});

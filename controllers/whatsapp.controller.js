@@ -53,7 +53,8 @@ const bookingFunction = (STAGE, number, obj) => {
 				OTP: '123456',
 				ETA: 'Your Ride is x mins away..',
 			};
-			sendMessage('', driverDetails, number);
+
+			sendMessage('driver details', number);
 		}, 5000);
 
 		setTimeout(() => {

@@ -70,7 +70,7 @@ const bookingFunction = (STAGE, number, obj) => {
 const recieveMessage = async (req, res) => {
 	try {
 		if (req.body.Body == 'CANCEL') return;
-		if (req.body.Body && !booking) sendMessage('text');
+		if (req.body.Body && !booking) sendMessage('text', req.body.From);
 		if (req.body.Body == 'BOOK') {
 			booking = true;
 			bookingFunction(0, req.body.From);

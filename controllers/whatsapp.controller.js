@@ -9,7 +9,7 @@ const sendMessage = async (messageBody, number) => {
 		const accountSid = 'ACa1d7033540820f01d6206b37bf6dcdc3';
 		const authToken = 'ba0d6343929c4a5bcdfd7b0756062bf0';
 		client(accountSid, authToken);
-
+		console.log(client);
 		client.messages
 			.create({
 				body: { messageBody },

@@ -2,6 +2,7 @@ const express = require('express');
 const authRoutes = require('./auth.routes');
 const servicesRoutes = require('./services.routes');
 const userRoutes = require('./user.routes');
+const whatsappRoutes = require('./whatsapp.routes');
 
 const router = express.Router();
 
@@ -17,6 +18,10 @@ const defaultRoutes = [
 	{
 		path: '/users',
 		route: userRoutes,
+	},
+	{
+		path: '/whatsapp',
+		route: whatsappRoutes,
 	},
 ];
 

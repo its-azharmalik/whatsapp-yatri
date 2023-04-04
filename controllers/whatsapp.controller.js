@@ -2,7 +2,7 @@ const { e } = require('../config');
 const { User } = require('../models');
 const { imageUploaderSingle } = require('../services');
 
-const sendMessage = async (req, res, messageBody, number) => {
+const sendMessage = async (messageBody, number) => {
 	try {
 		console.log(req.body);
 		console.log('sendMessage');
@@ -18,11 +18,8 @@ const sendMessage = async (req, res, messageBody, number) => {
 			})
 			.then((message) => console.log(message.sid))
 			.done();
-		res.status(200);
 	} catch (error) {
-		res.status(500).json({
-			error: error.message,
-		});
+		console.log(error);
 	}
 };
 

@@ -7,9 +7,6 @@ const client = require('twilio')(accountSid, authToken);
 
 const sendMessage = async (messageBody, number) => {
 	try {
-		console.log('sendMessage');
-
-		console.log(client.messages);
 		client.messages
 			.create({
 				body: messageBody,

@@ -1,7 +1,8 @@
 const { e } = require("../config");
 const { User } = require("../models");
 const Rides = require("../models/Rides");
-const { imageUploaderSingle, bookingService } = require("../services");
+const { imageUploaderSingle } = require("../services");
+const { bookingService } = require("../services/booking.services");
 const accountSid = "ACa1d7033540820f01d6206b37bf6dcdc3";
 const authToken = "2c773a745057532ae195872d96ecf1e8";
 const client = require("twilio")(accountSid, authToken);

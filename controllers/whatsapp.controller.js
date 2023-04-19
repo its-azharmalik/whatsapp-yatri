@@ -26,7 +26,7 @@ const recieveMessage = async (req, res) => {
     const customer = req.body;
     let ride = await Rides.find({ phone: customer.From });
     console.log("before create", ride);
-    if (!ride) {
+    if (ride.length == 0) {
       //create
       ride = await Rides.create({ phone: customer.From });
       console.log("create", ride);

@@ -32,10 +32,9 @@ const recieveMessage = async (req, res) => {
       const rideData = await RideData.create({ currentStage: "NOT STARTED" });
       ride = await Rides.create({ phone: customer.From });
       console.log("ridedata", rideData);
-      ride = await Rides.findOneAndUpdate(
-        { phone: customer.From },
-        { rideData: rideData._id }
-      );
+      ride = await Rides.findByIdAndUpdate(ride._id, {
+        rideData: rideData._id,
+      });
       console.log("create", ride);
     }
 

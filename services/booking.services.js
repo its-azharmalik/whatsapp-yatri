@@ -87,6 +87,7 @@ const bookingService = (ride, customer, searchRides) => {
   // console.log('recieveMessage');
 
   let updatedData = ride;
+  console.log(ride);
 
   let n = ride.rideData.length - 1;
   let stage = ride.rideData.currentStage;

@@ -1,13 +1,11 @@
-const emailService = require('./email.services');
+const emailService = require("./email.services");
 const {
-	imageUploaderMulti,
-	imageUploaderSingle,
-} = require('./imageUploader.services');
-const bookingService = require('./booking.services');
+  imageUploaderMulti,
+  imageUploaderSingle,
+} = require("./imageUploader.services");
 
 module.exports = {
-	emailService,
-	imageUploaderMulti,
-	imageUploaderSingle,
-	bookingService,
+  emailService,
+  imageUploaderMulti,
+  imageUploaderSingle,
 };

@@ -1,5 +1,5 @@
 const { STAGES } = require("../config/bookingStages");
-const { sendMessage } = require("../controllers/whatsapp.controller");
+const sendMessage = require("../controllers/whatsapp.controller");
 
 const maakeNewObj = () => {
   const obj = {

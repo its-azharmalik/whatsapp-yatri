@@ -107,6 +107,6 @@ const rideSchema = new mongoose.Schema({
   },
 });
 
-const RideData = mongoose.model("RidesData", rideSchema);
+const RideData = mongoose.model("RideData", rideSchema);
 
 module.exports = RideData;

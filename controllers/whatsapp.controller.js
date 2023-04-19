@@ -35,6 +35,7 @@ const recieveMessage = async (req, res) => {
       {},
       { new: true }
     );
+    console.log(ride);
     const searchRides = () => {
       setTimeout(() => {
         return "RIDE FOUND";

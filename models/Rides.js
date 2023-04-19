@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
       // 	lastSeen,
       // },
       type: Object,
+      required: true,
 
       currentStage: {
         type: String,

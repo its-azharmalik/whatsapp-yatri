@@ -25,9 +25,11 @@ const recieveMessage = async (req, res) => {
   try {
     const customer = req.body;
     let ride = await Rides.find({ phone: customer.From });
+    console.log("before create", ride);
     if (!ride) {
       //create
       ride = await Rides.create({ phone: customer.From });
+      console.log("create", ride);
     }
 
     // const ride = await Rides.findOneAndUpdate(
@@ -35,7 +37,7 @@ const recieveMessage = async (req, res) => {
     //   {},
     //   { new: true }
     // );
-    console.log(ride);
+    console.log("after create", ride);
     const searchRides = () => {
       setTimeout(() => {
         return "RIDE FOUND";

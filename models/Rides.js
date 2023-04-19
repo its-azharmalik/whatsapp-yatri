@@ -19,9 +19,11 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "RideData",
       required: true,
+      autopopulate: true,
     },
   ],
 });
+userSchema.plugin(require("mongoose-autopopulate"));
 
 const Rides = mongoose.model("Rides", userSchema);
 

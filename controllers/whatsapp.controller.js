@@ -35,7 +35,7 @@ const recieveMessage = async (req, res) => {
 
       ride = await Rides.findByIdAndUpdate(ride._id, {
         rideData: [rideData._id],
-      });
+      }).populate({ path: "rideData", model: "RideData" });
       console.log("create", ride);
     }
 

@@ -24,11 +24,17 @@ const sendMessage = async (messageBody, number) => {
 const recieveMessage = async (req, res) => {
   try {
     const customer = req.body;
-    let ride = await Rides.find({ phone: customer.From });
-    if (!ride) {
-      //create
-      ride = await Rides.create({ phone: customer.From });
-    }
+    // let ride = await Rides.find({ phone: customer.From });
+    // if (!ride) {
+    //   //create
+    //   ride = await Rides.create({ phone: customer.From });
+    // }
+
+    const ride = await Rides.findOneAndUpdate(
+      { phone: customer.From },
+      {},
+      { new: true }
+    );
     const searchRides = () => {
       setTimeout(() => {
         return "RIDE FOUND";

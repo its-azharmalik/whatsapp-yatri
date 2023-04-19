@@ -1,6 +1,7 @@
 const { e } = require("../config");
 const { User } = require("../models");
 const Rides = require("../models/Rides");
+const RideData = require("../models/RidesData");
 // const { imageUploaderSingle } = require("../services");
 const bookingService = require("../services/booking.services");
 const accountSid = "ACa1d7033540820f01d6206b37bf6dcdc3";
@@ -28,7 +29,9 @@ const recieveMessage = async (req, res) => {
     console.log("before create", ride);
     if (ride.length == 0) {
       //create
+      const rideData = RideData.create();
       ride = await Rides.create({ phone: customer.From });
+      ride = await Rides.findByIdAndUpdate({ rideData: rideData });
       console.log("create", ride);
     }
 

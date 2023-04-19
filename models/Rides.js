@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     trim: true,
   },
-  ridesData: [
+  rideData: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "RideData",

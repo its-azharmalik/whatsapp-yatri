@@ -88,7 +88,7 @@ const bookingService = (ride, customer, searchRides) => {
 
   let updatedData = ride;
 
-  let n = ride.ridesData.length - 1;
+  let n = ride.rideData.length - 1;
   let stage = ride.currentStage;
 
   // write a swtich case according to the curretn Stage to Update the database

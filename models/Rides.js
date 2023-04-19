@@ -104,7 +104,10 @@ const userSchema = new mongoose.Schema({
 					default: false,
 					required: true,
 				},
-				driverDetails: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+				driverDetails: {
+					type: String,
+					trim: true,
+				},
 				otp: {
 					type: String,
 					trim: true,

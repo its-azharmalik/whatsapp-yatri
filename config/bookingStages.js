@@ -1,4 +1,4 @@
-export const STAGES = {
+const STAGES = {
 	notStarted: 'NOT STARTED',
 	booking: {
 		isInitialized: 'BOOKING INITIALIZED',
@@ -25,3 +25,5 @@ export const STAGES = {
 		rideEnded: 'DRIVER ENDED THE RIDE',
 	},
 };
+
+module.exports = STAGES;

@@ -179,6 +179,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
           ride.phone
         );
         updatedData.rideData[n].confirmLocation.isInitiated = true;
+        updatedData.rideData[n].currentStage = "CONFIRM INITIALIZED";
       } else {
         // send user - something wrong *PLEASE SEND DESTINATION LOCATION*
         sendMessage(

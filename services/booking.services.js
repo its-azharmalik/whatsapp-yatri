@@ -1,5 +1,6 @@
 const STAGES = require("../config/bookingStages");
 const sendMessage = require("../controllers/whatsapp.controller");
+const RideData = require("../models/RideData");
 
 const maakeNewObj = () => {
   const obj = {
@@ -119,7 +120,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
       } else {
         // send Initial Message - Sonething Wrong Type *BOOK* to start the Booking
         sendMessage(
-          "Sonething Wrong Type *BOOK* to start the Booking",
+          "Something Wrong Type *BOOK* to start the Booking",
           ride.phone
         );
       }
@@ -226,18 +227,20 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
           sendMessage("OTP MATCHED", ride.phone);
         }, 6000);
         // currentStage - 'DRIVER DATA SENT'
-        setTimeout(() => {
+        setTimeout(async () => {
           sendMessage(
             "YOU HAVE REACHED YOUR DESTINATION, THANKS FOR RIDING WITH NAMA YATRI.",
             ride.phone
           );
+
+          // new ride data added to users database
+          updatedData.rideData[n].currentStage = "RIDE COMPLETED";
         }, 9000);
 
         // RIDE SEARCH INITIALIZED
       } else if (customer.Body == "NO") {
         // write logic to restart booking
-        updatedData.rideData[n].currentStage = "BOOKING CANCELLED";
-        updatedData.rideData.push(maakeNewObj());
+        updatedData.rideData[n].currentStage = "RIDE CANCELLED";
       } else {
         // send user - something wrong *CONFIRM YOUR RIDE \n STARTING LOCATION - \Location Link\ \n DESTINATION LOCATION - \Location Link\ \n FARE - 100 \n \n Type YES or NO to confirm*
         sendMessage(

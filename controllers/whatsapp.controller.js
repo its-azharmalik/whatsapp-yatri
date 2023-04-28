@@ -42,7 +42,17 @@ const recieveMessage = async (req, res) => {
       {},
       { new: true }
     );
-    console.log();
+
+    if (
+      ride.rideData[ride.rideData.length - 1].currentStage ==
+        "RIDE COMPLETED" ||
+      ride.rideData[ride.rideData.length - 1].currentStage == "RIDE CANCELLED"
+    ) {
+      const rideData = await RideData.create({ currentStage: "NOT STARTED" });
+      ride = await Rides.findByIdAndUpdate(ride._id, {
+        rideData: [rideData._id],
+      });
+    }
     const searchRides = () => {
       setTimeout(() => {
         return "RIDE FOUND";

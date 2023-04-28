@@ -5,7 +5,7 @@ const RideData = require("../models/RideData");
 // const { imageUploaderSingle } = require("../services");
 const bookingService = require("../services/booking.services");
 const accountSid = "ACa1d7033540820f01d6206b37bf6dcdc3";
-const authToken = "2c773a745057532ae195872d96ecf1e8";
+const authToken = "b91022c8a0a7284dfaf051553927c946";
 const client = require("twilio")(accountSid, authToken);
 
 const sendMessage = async (messageBody, number) => {
@@ -42,6 +42,7 @@ const recieveMessage = async (req, res) => {
       {},
       { new: true }
     );
+    console.log();
     const searchRides = () => {
       setTimeout(() => {
         return "RIDE FOUND";

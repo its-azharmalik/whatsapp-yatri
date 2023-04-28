@@ -41,15 +41,15 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
   let updatedDataNew;
 
   // write a swtich case according to the curretn Stage to Update the database
-  if (customer.Body == "CANCEL") {
-    updatedData.rideData[n].currentStage = "RIDE CANCELLED";
-    sendMessage(
-      "YOUR RIDE HAS BEEN CANCELLED. THANKS FOR USING NAMMA YATRI.",
-      ride.phone
-    );
+  //   if (customer.Body == "CANCEL") {
+  //     updatedData.rideData[n].currentStage = "RIDE CANCELLED";
+  //     sendMessage(
+  //       "YOUR RIDE HAS BEEN CANCELLED. THANKS FOR USING NAMMA YATRI.",
+  //       ride.phone
+  //     );
 
-    return updatedData;
-  }
+  //     return updatedData;
+  //   }
   switch (stage) {
     case STAGES.notStarted:
       // send Initial Message - Type *BOOK* to start the Booking

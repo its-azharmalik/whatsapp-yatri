@@ -25,7 +25,6 @@ const sendMessage = async (messageBody, number) => {
 const recieveMessage = async (req, res) => {
   try {
     const customer = req.body;
-    console.log("customer", customer);
 
     let ride = await Rides.find({ phone: customer.From });
     if (ride.length == 0) {
@@ -50,10 +49,18 @@ const recieveMessage = async (req, res) => {
       ride.rideData[ride.rideData.length - 1].currentStage == "RIDE CANCELLED"
     ) {
       const rideData = await RideData.create({ currentStage: "NOT STARTED" });
-      ride = await Rides.findByIdAndUpdate(ride._id, {
-        rideData: [rideData._id],
-      });
-      console.log("Cancelled ride");
+      const arr = ride.rideData;
+      console.log(rideData);
+      arr.push(rideData._id);
+      ride = await Rides.findByIdAndUpdate(
+        { _id: ride._id },
+        {
+          $set: {
+            rideData: arr,
+          },
+        },
+        { new: true }
+      );
     }
     const searchRides = () => {
       setTimeout(() => {
@@ -69,8 +76,6 @@ const recieveMessage = async (req, res) => {
     );
     const data = updatedData.rideData[updatedData.rideData.length - 1];
     const id = data.id;
-    console.log("id", id);
-    console.log("data", data);
     const updatedRide = await RideData.findByIdAndUpdate(
       { _id: id },
       {
@@ -92,10 +97,10 @@ const recieveMessage = async (req, res) => {
       // },
       // updatedData.rideData[updatedData.rideData.length - 1]
     );
-    console.log("updatedRide", updatedRide);
+    // console.log("updatedRide", updatedRide);
     res.status(200).json({
       message: e.states.success,
-      body: { updatedRide },
+      body: { updatedRide, ride },
     });
   } catch (error) {
     console.log(error);

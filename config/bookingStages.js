@@ -1,7 +1,7 @@
 const STAGES = {
 	notStarted: 'NOT STARTED',
 	booking: {
-		isInitialized: 'BOOKING INITIALIZED',
+		isInitiated: 'BOOKING INITIALIZED',
 		recievedText: 'TEXT RECIEVED',
 	},
 	startingLocation: {

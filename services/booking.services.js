@@ -215,24 +215,25 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
           "Searching For Rides / Status returned by above function",
           ride.phone
         );
-        searchRides(); // write actual function here
-
+        // searchRides(); // write actual function here
         updatedData.rideData[n].currentStage = "RIDE SEARCH INITIALIZED";
         updatedData.rideData[n].searchRides.isInitiated = true;
+        setTimeout(() => {
+          sendMessage("OTP & DRIVER DETIAILS", ride.phone);
+          updatedData.rideData[n].currentStage = "DRIVER DATA SENT";
+        }, 3000);
 
         // set searchRides.isInitiated to true
-        sendMessage("OTP & DRIVER DETIAILS", ride.phone);
-
+        setTimeout(() => {
+          sendMessage("OTP MATCHED", ride.phone);
+        }, 6000);
         // currentStage - 'DRIVER DATA SENT'
-        updatedData.rideData[n].currentStage = "DRIVER DATA SENT";
-
-        searchRides();
-        sendMessage("OTP MATCHED", ride.phone);
-        searchRides();
-        sendMessage(
-          "YOU HAVE REACHED YOUR DESTINATION, THANKS FOR RIDING WITH NAMA YATRI.",
-          ride.phone
-        );
+        setTimeout(() => {
+          sendMessage(
+            "YOU HAVE REACHED YOUR DESTINATION, THANKS FOR RIDING WITH NAMA YATRI.",
+            ride.phone
+          );
+        }, 9000);
 
         // RIDE SEARCH INITIALIZED
       } else if (customer.Body == "NO") {

@@ -43,22 +43,7 @@ const recieveMessage = async (req, res) => {
       {},
       { new: true }
     );
-    if (customer.Body == "CANCEL") {
-      const rideData = await RideData.findByIdAndUpdate(
-        { _id: ride.rideData[ride.rideData.length - 1]._id },
-        {
-          $set: {
-            currentStage: "RIDE CANCELLED",
-          },
-        },
-        { new: true }
-      );
-    }
-    ride = await Rides.findOneAndUpdate(
-      { phone: customer.From },
-      {},
-      { new: true }
-    );
+
     if (
       ride.rideData[ride.rideData.length - 1].currentStage ==
         "RIDE COMPLETED" ||

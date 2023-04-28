@@ -33,60 +33,6 @@ const maakeNewObj = () => {
 };
 
 const bookingService = (ride, customer, searchRides, sendMessage) => {
-  // customer : {
-  //   Latitude: '28.544321',
-  //   Longitude: '77.2692917',
-  //   SmsMessageSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   NumMedia: '0',
-  //   ProfileName: 'NoobMaster69',
-  //   SmsSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   WaId: '919582085780',
-  //   SmsStatus: 'received',
-  //   Body: '',
-  //   To: 'whatsapp:+14155238886',
-  //   NumSegments: '1',
-  //   ReferralNumMedia: '0',
-  //   MessageSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   AccountSid: 'ACa1d7033540820f01d6206b37bf6dcdc3',
-  //   From: 'whatsapp:+919582085780',
-  //   ApiVersion: '2010-04-01'
-  // }
-
-  // [Object: null prototype] {
-  //   SmsMessageSid: 'SMe15f31b11bad7c30c83c0fc48f422117',
-  //   NumMedia: '0',
-  //   ProfileName: 'NoobMaster69',
-  //   SmsSid: 'SMe15f31b11bad7c30c83c0fc48f422117',
-  //   WaId: '919582085780',
-  //   SmsStatus: 'received',
-  //   Body: 'Azhar malik 🫂🫂',
-  //   To: 'whatsapp:+14155238886',
-  //   NumSegments: '1',
-  //   ReferralNumMedia: '0',
-  //   MessageSid: 'SMe15f31b11bad7c30c83c0fc48f422117',
-  //   AccountSid: 'ACa1d7033540820f01d6206b37bf6dcdc3',
-  //   From: 'whatsapp:+919582085780',
-  //   ApiVersion: '2010-04-01'
-  //   }
-  // [Object: null prototype] {
-  //   Latitude: '28.544321',
-  //   Longitude: '77.2692917',
-  //   SmsMessageSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   NumMedia: '0',
-  //   ProfileName: 'NoobMaster69',
-  //   SmsSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   WaId: '919582085780',
-  //   SmsStatus: 'received',
-  //   Body: '',
-  //   To: 'whatsapp:+14155238886',
-  //   NumSegments: '1',
-  //   ReferralNumMedia: '0',
-  //   MessageSid: 'SM895d447525d2e4ab175cd5eb60893049',
-  //   AccountSid: 'ACa1d7033540820f01d6206b37bf6dcdc3',
-  //   From: 'whatsapp:+919582085780',
-  //   ApiVersion: '2010-04-01'
-  // console.log('recieveMessage');
-
   let updatedData = ride;
   let n = ride.rideData.length - 1;
   let stage = ride.rideData[n].currentStage;
@@ -95,7 +41,15 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
   let updatedDataNew;
 
   // write a swtich case according to the curretn Stage to Update the database
+  if (customer.Body == "CANCEL") {
+    updatedData.rideData[n].currentStage = "RIDE CANCELLED";
+    sendMessage(
+      "YOUR RIDE HAS BEEN CANCELLED. THANKS FOR USING NAMMA YATRI.",
+      ride.phone
+    );
 
+    return updatedData;
+  }
   switch (stage) {
     case STAGES.notStarted:
       // send Initial Message - Type *BOOK* to start the Booking

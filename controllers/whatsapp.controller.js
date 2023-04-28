@@ -54,7 +54,11 @@ const recieveMessage = async (req, res) => {
         { new: true }
       );
     }
-
+    ride = await Rides.findOneAndUpdate(
+      { phone: customer.From },
+      {},
+      { new: true }
+    );
     if (
       ride.rideData[ride.rideData.length - 1].currentStage ==
         "RIDE COMPLETED" ||

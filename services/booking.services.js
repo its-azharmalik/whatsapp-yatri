@@ -186,8 +186,6 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
           "Something Wrong *PLEASE SEND DESTINATION LOCATION*",
           ride.phone
         );
-        updatedData.rideData[n].currentStage = "CONFIRM INITIALIZED";
-        updatedData.rideData[n].confirmLocation.isInitiated = true;
       }
       break;
     // case STAGES.destinationLocation.recievedText:

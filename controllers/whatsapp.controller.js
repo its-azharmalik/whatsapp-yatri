@@ -50,10 +50,7 @@ const recieveMessage = async (req, res) => {
 			ride,
 			customer,
 			searchRides,
-			(message, phone) => {
-				console.log('from', phone);
-				console.log('message', message);
-			}
+			sendMessage
 		);
 		const data = updatedData.rideData[updatedData.rideData.length - 1];
 		const id = data.id;

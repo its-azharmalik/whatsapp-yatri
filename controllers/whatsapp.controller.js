@@ -53,6 +53,7 @@ const recieveMessage = async (req, res) => {
       ride = await Rides.findByIdAndUpdate(ride._id, {
         rideData: [rideData._id],
       });
+      console.log("Cancelled ride");
     }
     const searchRides = () => {
       setTimeout(() => {

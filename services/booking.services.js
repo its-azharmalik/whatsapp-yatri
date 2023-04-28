@@ -181,7 +181,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
       break;
     default:
       // send Initial Message - Type *BOOK* to start the Booking
-      sendMessage("Type *BOOK* to start the Booking", ride.phone);
+      sendMessage("Type *BOOK* to start the Booking d", ride.phone);
       // set booking.isInitiated to true
       updatedData.rideData[n].booking.isInitiated = true;
       // currentStage - 'BOOKING INITIALIZED'

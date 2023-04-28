@@ -244,16 +244,6 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
           "Something Wrong *CONFIRM YOUR RIDE \n STARTING LOCATION - Location Link \n DESTINATION LOCATION - Location Link \n FARE - 100 \n \n Type YES or NO to confirm*",
           ride.phone
         );
-
-        sendMessage("WANT TO BOOK A NEW RIDE", ride.phone);
-        // make a new obj and push in the array
-        updatedData.rideData.push(maakeNewObj());
-        // send Initial Message - Type *BOOK* to start the Booking
-        sendMessage("Type *BOOK* to start the Booking", ride.phone);
-        // set booking.isInitiated to true
-        updatedData.rideData[rideData.length - 1].booking.isInitiated = true;
-        // currentStage - 'BOOKING INITIALIZED'
-        updatedData.rideData[n].currentStage = "BOOKING INITIALIZED";
       }
       break;
     // case STAGES.confirmLocation.recievedText:

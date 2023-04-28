@@ -26,6 +26,7 @@ const recieveMessage = async (req, res) => {
   try {
     const customer = req.body;
     console.log("customer", customer);
+
     let ride = await Rides.find({ phone: customer.From });
     if (ride.length == 0) {
       //create
@@ -42,6 +43,17 @@ const recieveMessage = async (req, res) => {
       {},
       { new: true }
     );
+    if (customer.Body == "CANCEL") {
+      const rideData = await RideData.findByIdAndUpdate(
+        { _id: ride.rideData[ride.rideData.length - 1]._id },
+        {
+          $set: {
+            currentStage: "RIDE CANCELLED",
+          },
+        },
+        { new: true }
+      );
+    }
 
     if (
       ride.rideData[ride.rideData.length - 1].currentStage ==
@@ -58,6 +70,7 @@ const recieveMessage = async (req, res) => {
         return "RIDE FOUND";
       }, 3000);
     };
+
     const updatedData = bookingService(
       ride,
       customer,

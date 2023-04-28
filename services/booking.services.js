@@ -99,7 +99,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
   switch (stage) {
     case STAGES.notStarted:
       // send Initial Message - Type *BOOK* to start the Booking
-      sendMessage("Type *BOOK* to start the Booking NS", ride.phone);
+      sendMessage("Type *BOOK* to start the Booking", ride.phone);
       // set booking.isInitiated to true
       updatedData.rideData[n].booking.isInitiated = true;
       //   updatedData.rideData[n].booking.isInitiated = true;
@@ -120,19 +120,12 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
       } else {
         // send Initial Message - Sonething Wrong Type *BOOK* to start the Booking
         sendMessage(
-          "Something Wrong Type *BOOK* to start the Booking",
+          "Please send valid response.\n Type *BOOK* to start the Booking",
           ride.phone
         );
       }
       break;
-    // case STAGES.startingLocation.isInitiated:
-    //   // send user - *SEND STARTING LOCATION*
-    // //   sendMessage("*SEND STARTING LOCATION*", ride.phone);
-    //   // set startingLocation.isInitiated  to true
-    //   updatedData.rideData[n].startingLocation.isInitiated = true;
-    //   // currentStage - 'STARTING LOCATION INITIALIZED'
-    //   updatedData.rideData[n].currentStage = "STARTING LOCATION INITIALIZED";
-    //   break;
+
     case STAGES.startingLocation.isInitiated:
       if (customer.Latitude && customer.Longitude) {
         // set longitude and latitude
@@ -156,14 +149,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
         );
       }
       break;
-    // case STAGES.startingLocation.recievedText:
-    //   // send user - *SEND DESTINATION LOCATION*
-    //   sendMessage("*SEND DESTINATION LOCATION*", ride.phone);
-    //   // set destinationLocation.isInitiated true
-    //   updatedData.rideData[n].destinationLocation.isInitiated = true;
-    //   // currrentStage - 'DESTINATION LOCATION INITIALIZED'
-    //   updatedData.rideData[n].currentStage = "DESTINATION LOCATION INITIALIZED";
-    //   break;
+
     case STAGES.destinationLocation.isInitiated:
       if (customer.Latitude && customer.Longitude) {
         // set longitude and latitude
@@ -176,7 +162,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
         // currentStage - 'DESTINATION LOCATION RECIEVED'
         updatedData.rideData[n].currentStage = "DESTINATION LOCATION RECIEVED";
         sendMessage(
-          "*CONFIRM YOUR RIDE \n STARTING LOCATION - Location Link \n DESTINATION LOCATION - Location Link \n FARE - 100 \n \n Type YES or NO to confirm*",
+          "*CONFIRM YOUR RIDE \n STARTING LOCATION - _Link to check location_ \n DESTINATION LOCATION - _Link to check location_ \n FARE - 100 \n \n Type YES or NO to confirm*",
           ride.phone
         );
         updatedData.rideData[n].confirmLocation.isInitiated = true;
@@ -189,17 +175,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
         );
       }
       break;
-    // case STAGES.destinationLocation.recievedText:
-    //   // send user - *CONFIRM YOUR RIDE \n STARTING LOCATION - \Location Link\ \n DESTINATION LOCATION - \Location Link\ \n FARE - 100 \n \n Type YES or NO to confirm*
-    //   sendMessage(
-    //     "*CONFIRM YOUR RIDE \n STARTING LOCATION - Location Link \n DESTINATION LOCATION - Location Link \n FARE - 100 \n \n Type YES or NO to confirm*",
-    //     ride.phone
-    //   );
-    //   // set confirmLocation.isInitiated to true
-    //   updatedData.rideData[n].confirmLocation.isInitiated = true;
-    //   // currentStage - 'CONFIRM INITIALIZED'
-    //   updatedData.rideData[n].currentStage = "CONFIRM INITIALIZED";
-    //   break;
+
     case STAGES.confirmLocation.isInitiated:
       if (customer.Body == "YES") {
         // set confirmLocation.recievedText to true
@@ -210,10 +186,7 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
         // function to start search rides
 
         // send user - Searching For Rides / Status returned by above function
-        sendMessage(
-          "Searching For Rides / Status returned by above function",
-          ride.phone
-        );
+        sendMessage("Searching For Rides", ride.phone);
         // searchRides(); // write actual function here
         updatedData.rideData[n].currentStage = "RIDE SEARCH INITIALIZED";
         updatedData.rideData[n].searchRides.isInitiated = true;
@@ -228,90 +201,33 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
         }, 6000);
         // currentStage - 'DRIVER DATA SENT'
         setTimeout(async () => {
+          // new ride data added to users database
+          updatedData.rideData[n].currentStage = "RIDE COMPLETED";
           sendMessage(
             "YOU HAVE REACHED YOUR DESTINATION, THANKS FOR RIDING WITH NAMA YATRI.",
             ride.phone
           );
-
-          // new ride data added to users database
-          updatedData.rideData[n].currentStage = "RIDE COMPLETED";
         }, 9000);
 
         // RIDE SEARCH INITIALIZED
       } else if (customer.Body == "NO") {
+        sendMessage(
+          "YOUR RIDE HAS BEEN CANCELLED. THANKS FOR USING NAMMA YATRI.",
+          ride.phone
+        );
         // write logic to restart booking
         updatedData.rideData[n].currentStage = "RIDE CANCELLED";
       } else {
         // send user - something wrong *CONFIRM YOUR RIDE \n STARTING LOCATION - \Location Link\ \n DESTINATION LOCATION - \Location Link\ \n FARE - 100 \n \n Type YES or NO to confirm*
         sendMessage(
-          "Something Wrong *CONFIRM YOUR RIDE \n STARTING LOCATION - Location Link \n DESTINATION LOCATION - Location Link \n FARE - 100 \n \n Type YES or NO to confirm*",
+          "Please send valid response. \n *CONFIRM YOUR RIDE \n STARTING LOCATION - _Link to check location_ \n DESTINATION LOCATION - _Link to check location_ \n FARE - 100 \n \n Type YES or NO to confirm*",
           ride.phone
         );
       }
       break;
-    // case STAGES.confirmLocation.recievedText:
-    //   // function to start search rides or get back the status
-    //   //
-
-    //   // send user - Searching For Rides / Status returned by above function
-    //   sendMessage(
-    //     "Searching For Rides / Status returned by above function",
-    //     ride.phone
-    //   );
-    //   // currentStage - RIDE SEARCH INITIALIZED
-    //   updatedData.rideData[n].currentStage = "RIDE SEARCH INITIALIZED";
-    //   break;
-    // case STAGES.searchRides.isInitiated:
-    //   // function to start search rides or get back the status
-    //   searchRides(); // write actual function here
-    //   // in this function we write
-    //   // if ridefound then update the driver details and otp
-    //   // on the driver's side if he enters the otp send user - otp matched & start the ride
-
-    //   // if( status == ride found ) {
-    //   // SET OTP & SEND DRIVER DETIAILS
-    //   //
-    //   sendMessage("SET OTP & SEND DRIVER DETIAILS", ride.phone);
-
-    //   // currentStage - 'DRIVER DATA SENT'
-    //   updatedData.rideData[n].currentStage = "DRIVER DATA SENT";
-    //   //}
-    //   // else send user - Searching For Rides / Status returned by above function
-    //   sendMessage(
-    //     "Searching For Rides / Status returned by above function",
-    //     ride.phone
-    //   );
-
-    //   // currentStage - DRIVER DATA SENT
-    //   updatedData.rideData[n].currentStage = "DRIVER DATA SENT";
-    //   break;
-    // case STAGES.searchRides.recievedText:
-    //   // send driver details again
-    //   sendMessage("OTP & DRIVER DETIAILS", ride.phone);
-    //   break;
-    // case STAGES.rideStatus.rideStarted:
-    //   // currentStage - OTP MATCHED
-    //   sendMessage("OTP MATCHED", ride.phone);
-    //   updatedData.rideData[n].currentStage = "OTP MATCHED";
-    //   // when driver ends the ride set the stage currentStage - DRIVER ENDED THE RIDE
-    //   sendMessage("DRIVER ENDED THE RIDE", ride.phone);
-    //   updatedData.rideData[n].currentStage = "DRIVER ENDED THE RIDE";
-    //   break;
-    // case STAGES.rideStatus.rideEnded:
-    //   // send - WANT TO BOOK A NEW RIDE
-    //   sendMessage("WANT TO BOOK A NEW RIDE", ride.phone);
-    //   // make a new obj and push in the array
-    //   updatedData.rideData.push(maakeNewObj());
-    //   // send Initial Message - Type *BOOK* to start the Booking
-    //   sendMessage("Type *BOOK* to start the Booking", ride.phone);
-    //   // set booking.isInitiated to true
-    //   updatedData.rideData[rideData.length - 1].booking.isInitiated = true;
-    //   // currentStage - 'BOOKING INITIALIZED'
-    //   updatedData.rideData[n].currentStage = "BOOKING INITIALIZED";
-    //   break;
     default:
       // send Initial Message - Type *BOOK* to start the Booking
-      sendMessage("Type *BOOK* to start the Booking ---", ride.phone);
+      sendMessage("Type *BOOK* to start the Booking", ride.phone);
       // set booking.isInitiated to true
       updatedData.rideData[n].booking.isInitiated = true;
       // currentStage - 'BOOKING INITIALIZED'

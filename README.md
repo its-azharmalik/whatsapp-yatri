@@ -29,6 +29,41 @@ This library is required to interact with the Twilio API and send and receive me
 
 Once you have completed these steps, you will be ready to start using the Twilio API to send and receive messages through WhatsApp.
 
+Configure all other enironment variables which are stated below by siging up on different platforms.
+
+> PORT=XXX
+
+> GOOGLE_CREDENTIAL_CLIENT_ID=XXX
+
+> GOOGLE_CREDENTIAL_CLIENT_SECRET=XXX
+
+> GOOGLE_CREDENTIAL_CALLBACK_URL=XXX
+
+> JWT_ACCESS_TOKEN=XXX
+
+> CLOUDINARY_CLOUD_NAME=XXX
+
+> CLOUDINARY_API_KEY=XXX
+
+> CLOUDINARY_API_SECRET=XXX
+
+> DOMAIN=localhost:8000
+
+> NODEMAILER_EMAIL=XXX
+
+> NODEMAILER_PASSWORD=XXX
+
+> BCRYPT_SALT_ROUNDS=XXX
+
+> TWILLIO_SECRET = XXX
+
+> TWILLIO_SID = XXX
+
+> ACCOUNT_SID =XXX
+
+> AUTH_TOKEN =XXX
+
+
 ## Getting Started
 
 Follow the below steps to start using the WhatsApp bot for booking cabs:

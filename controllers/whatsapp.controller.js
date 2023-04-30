@@ -4,8 +4,8 @@ const Rides = require("../models/Rides");
 const RideData = require("../models/RideData");
 // const { imageUploaderSingle } = require("../services");
 const bookingService = require("../services/booking.services");
-const accountSid = "ACa1d7033540820f01d6206b37bf6dcdc3";
-const authToken = "831f03f627e53c506ce3617246b987d1";
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const sendMessage = async (messageBody, number) => {

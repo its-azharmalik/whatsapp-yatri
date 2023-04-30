@@ -41,7 +41,12 @@ const bookingService = (ride, customer, searchRides, sendMessage) => {
   let updatedDataNew;
 
   // write a swtich case according to the curretn Stage to Update the database
-  if (customer.Body == "CANCEL" && stage != "NOT STARTED") {
+  if (
+    customer.Body == "CANCEL" &&
+    stage != "NOT STARTED" &&
+    stage != "RIDE COMPLETED" &&
+    stage != "RIDE CANCELLED"
+  ) {
     updatedData.rideData[n].currentStage = "RIDE CANCELLED";
     sendMessage(
       "YOUR RIDE HAS BEEN CANCELLED. THANKS FOR USING NAMMA YATRI.",

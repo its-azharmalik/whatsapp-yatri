@@ -1,88 +1,72 @@
-# Project Title
+# Namma Yatri
+Namma Yatri is a GitHub project that aims to provide a hassle-free cab booking experience to its users. With the help of this project, users can easily book cabs directly from their WhatsApp account, without having to install any additional applications or visit any website.
 
-One Paragraph of project description goes here
+The WhatsApp bot created by this project allows users to enter their pickup location, destination, and other necessary details such as the date and time of travel. The bot then checks for available cabs in the area and provides users with a list of options to choose from. Once a user selects a cab, the bot takes care of the booking process, providing users with confirmation and all the necessary details regarding their ride.
+
+The Namma Yatri app is designed to be user-friendly and intuitive, with a simple and easy-to-use interface. The project is open-source, and developers are encouraged to contribute to the project, add new features, and improve its overall functionality.
+
+Overall, Namma Yatri is a promising project that has the potential to revolutionize the way people book cabs. With its easy-to-use WhatsApp bot and seamless booking process, it has the potential to become a go-to platform for users looking for a hassle-free and convenient way to book cabs.
+
+###Prerequisites
+Before you can start using the Twilio API for sending and receiving messages through WhatsApp, you need to complete the following steps:
+
+1) Create a Twilio account: If you don't already have a Twilio account, go to <a href = "https://www.twilio.com/en-us"> Twilio's website</a> and sign up for a free account.
+
+2) Create a Twilio WhatsApp Sandbox: Follow the <a href="https://www.twilio.com/docs/whatsapp/sandbox">Twilio guide</a> to set up a WhatsApp sandbox and receive a Twilio phone number that can be used to send and receive messages.
+
+3) Configure your Twilio account: Once you have set up your Twilio WhatsApp sandbox, configure your Twilio account by providing your Twilio phone number and configuring the messaging service. Follow the Twilio guide to set up your account and messaging service.
+
+4) Install the Twilio library: Install the Twilio library for Python by running the following command in your terminal:
+
+```
+npm install twilio
+```
+
+This library is required to interact with the Twilio API and send and receive messages through WhatsApp.
+> This step can be skipped as twilio will be automatically installed when installing project dependency
+
+
+Once you have completed these steps, you will be ready to start using the Twilio API to send and receive messages through WhatsApp.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your
-local machine for development and testing purposes. See deployment for notes on
-how to deploy the project on a live system.
+Follow the below steps to start using the WhatsApp bot for booking cabs:
 
-### Prerequisites
-
-What things you need to install the software and how to install them
+1) ***Clone the repository:*** Clone the Namma Yatri GitHub repository to your local machine by running the following command in your terminal:
 
 ```
-Give examples
+git clone https://github.com/<username>/namma-yatri.git
 ```
 
-### Installing
+2) ***Set up the environment:*** Install the required dependencies and packages to run the Namma Yatri project by running the following command in your terminal:
 
-A step by step series of examples that tell you how to get a development env
-running
-
-Say what the step will be
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
-
 ```
-until finished
+npm run dev
 ```
 
-End with an example of getting some data out of the system or using it for a
-little demo
+3) ***Configure the WhatsApp bot:*** To use the WhatsApp bot, you need to create a WhatsApp account and configure the Twilio API for sending and receiving messages. Follow the instructions provided in the Prerequisite section to set up your WhatsApp bot and Twilio API. Add the Accounnt Ssid and Auth token in the .env file.
 
-## Running the tests
+4) ***Start booking cabs:*** Once you have completed the above steps, you can start booking cabs through the WhatsApp bot. Simply send a message to the bot with your pickup location, destination, date, and time of travel. The bot will respond with a list of available cabs in the area, and you can select the one that suits your needs. The bot will then take care of the booking process and provide you with confirmation and all necessary details.
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
-Please read
-[CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for
-details on our code of conduct, and the process for submitting pull requests to
-us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available,
-see the
-[tags on this repository](https://github.com/its-azharmalik/whatsapp-yatri/tags).
+Contributions to the Namma Yatri project are welcome! If you would like to contribute, please fork the repository and submit a pull request.
 
 ## Authors
 
 - **Azhar Malik** - _Initial work_ -
   [its-azharmalik](https://github.com/its-azharmalik)
+
+- **Utkarsh Jha** - _Initial work_ -
+  [Utkarsh-88034](https://github.com/Utkarsh-88034)
 
 See also the list of
 [contributors](https://github.com/your/project/contributors) who participated in
@@ -93,8 +77,4 @@ this project.
 This project is licensed under the MIT License - see the
 [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc

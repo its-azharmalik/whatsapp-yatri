@@ -7,7 +7,8 @@ The Namma Yatri app is designed to be user-friendly and intuitive, with a simple
 
 Overall, Namma Yatri is a promising project that has the potential to revolutionize the way people book cabs. With its easy-to-use WhatsApp bot and seamless booking process, it has the potential to become a go-to platform for users looking for a hassle-free and convenient way to book cabs.
 
-###Prerequisites
+## Prerequisites
+
 Before you can start using the Twilio API for sending and receiving messages through WhatsApp, you need to complete the following steps:
 
 1) Create a Twilio account: If you don't already have a Twilio account, go to <a href = "https://www.twilio.com/en-us"> Twilio's website</a> and sign up for a free account.

@@ -3,9 +3,9 @@ WhastApp Yatri is a GitHub project that aims to provide a hassle-free cab bookin
 
 The WhatsApp bot created by this project allows users to enter their pickup location, destination, and other necessary details such as the date and time of travel. The bot then checks for available cabs in the area and provides users with a list of options to choose from. Once a user selects a cab, the bot takes care of the booking process, providing users with confirmation and all the necessary details regarding their ride.
 
-The Namma Yatri app is designed to be user-friendly and intuitive, with a simple and easy-to-use interface. The project is open-source, and developers are encouraged to contribute to the project, add new features, and improve its overall functionality.
+The WhatsApp Yatri app is designed to be user-friendly and intuitive, with a simple and easy-to-use interface. The project is open-source, and developers are encouraged to contribute to the project, add new features, and improve its overall functionality.
 
-Overall, Namma Yatri is a promising project that has the potential to revolutionize the way people book cabs. With its easy-to-use WhatsApp bot and seamless booking process, it has the potential to become a go-to platform for users looking for a hassle-free and convenient way to book cabs.
+Overall, WhatsApp Yatri is a promising project that has the potential to revolutionize the way people book cabs. With its easy-to-use WhatsApp bot and seamless booking process, it has the potential to become a go-to platform for users looking for a hassle-free and convenient way to book cabs.
 
 ## Prerequisites
 
@@ -68,13 +68,13 @@ Configure all other enironment variables which are stated below by siging up on 
 
 Follow the below steps to start using the WhatsApp bot for booking cabs:
 
-1) ***Clone the repository:*** Clone the Namma Yatri GitHub repository to your local machine by running the following command in your terminal:
+1) ***Clone the repository:*** Clone the WhatsApp Yatri GitHub repository to your local machine by running the following command in your terminal:
 
 ```
-git clone https://github.com/<username>/namma-yatri.git
+git clone https://github.com/<username>/whatsapp-yatri.git
 ```
 
-2) ***Set up the environment:*** Install the required dependencies and packages to run the Namma Yatri project by running the following command in your terminal:
+2) ***Set up the environment:*** Install the required dependencies and packages to run the WhatsApp Yatri project by running the following command in your terminal:
 
 
 ```
@@ -94,7 +94,7 @@ npm run dev
 
 ## Contributing
 
-Contributions to the Namma Yatri project are welcome! If you would like to contribute, please fork the repository and submit a pull request.
+Contributions to the WhatsApp Yatri project are welcome! If you would like to contribute, please fork the repository and submit a pull request.
 
 ## Authors
 

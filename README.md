@@ -1,5 +1,5 @@
-# Namma Yatri
-Namma Yatri is a GitHub project that aims to provide a hassle-free cab booking experience to its users. With the help of this project, users can easily book cabs directly from their WhatsApp account, without having to install any additional applications or visit any website.
+# WhatsApp Yatri
+WhastApp Yatri is a GitHub project that aims to provide a hassle-free cab booking experience to its users. With the help of this project, users can easily book cabs directly from their WhatsApp account, without having to install any additional applications or visit any website.
 
 The WhatsApp bot created by this project allows users to enter their pickup location, destination, and other necessary details such as the date and time of travel. The bot then checks for available cabs in the area and provides users with a list of options to choose from. Once a user selects a cab, the bot takes care of the booking process, providing users with confirmation and all the necessary details regarding their ride.
 
